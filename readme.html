@@ -1,0 +1,1020 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.25">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Final Project</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" integrity="sha384-ZvpUoO/+PpLXR1lu4jmpXWu80pZlYUAfxl5NsBMWOEPSjUn/6Z/hRTt8+pR6L4N2" crossorigin="anonymous"></script><script src="readme_files/libs/clipboard/clipboard.min.js"></script>
+<script src="readme_files/libs/quarto-html/quarto.js" type="module"></script>
+<script src="readme_files/libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="readme_files/libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="readme_files/libs/quarto-html/popper.min.js"></script>
+<script src="readme_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="readme_files/libs/quarto-html/anchor.min.js"></script>
+<link href="readme_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="readme_files/libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="readme_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="readme_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="readme_files/libs/bootstrap/bootstrap-9e3ffae467580fdb927a41352e75a2e0.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="https://cdn.jsdelivr.net/npm/requirejs@2.3.6/require.min.js" integrity="sha384-c9c+LnTbwQ3aujuU7ULEPVvgLs+Fn6fJUvIGTsuu1ZcCf11fiEubah0ttpca4ntM sha384-6V1/AdqZRWk1KAlWbKBlGhN7VG4iE/yAZcO6NZPMF8od0vukrvr0tg4qY6NSrItx" crossorigin="anonymous"></script>
+
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+
+
+</head>
+
+<body class="fullcontent quarto-light">
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Final Project</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div id="126ca26a" class="cell" data-execution_count="1">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> requests</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> bs4 <span class="im">import</span> BeautifulSoup</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div id="ac384202" class="cell" data-execution_count="2">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># URL of the website to scrape</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>dark_knight_link <span class="op">=</span> <span class="st">"https://imsdb.com/scripts/Dark-Knight-Rises,-The.html"</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>link_request <span class="op">=</span> requests.get(dark_knight_link)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>soup <span class="op">=</span> BeautifulSoup(link_request.content, <span class="st">'html.parser'</span>)</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>dark_knight_script <span class="op">=</span> soup.select(<span class="st">'pre'</span>)</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>dark_knight_script <span class="op">=</span> [x.text.strip() <span class="cf">for</span> x <span class="kw">in</span> dark_knight_script]</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>entry_info <span class="op">=</span> dark_knight_script[<span class="dv">0</span>].split(<span class="st">'</span><span class="ch">\n</span><span class="st">'</span>)</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>entry_info <span class="op">=</span> [x.strip() <span class="cf">for</span> x <span class="kw">in</span> entry_info <span class="cf">if</span> x.strip() <span class="op">!=</span> <span class="st">''</span>]</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>df_entry_info <span class="op">=</span> pd.DataFrame(entry_info)</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>characters <span class="op">=</span> []</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>dialogues <span class="op">=</span> []</span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>current_character <span class="op">=</span> <span class="va">None</span></span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>current_dialogue <span class="op">=</span> []</span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> row, line <span class="kw">in</span> <span class="bu">enumerate</span>(entry_info[<span class="dv">10</span>:]):</span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> line <span class="op">==</span> line.upper() <span class="kw">and</span> <span class="kw">not</span> line.endswith(<span class="st">'.'</span>) <span class="kw">and</span> <span class="kw">not</span> line.endswith(<span class="st">':'</span>) <span class="kw">and</span> <span class="kw">not</span> line.startswith(<span class="st">'INT'</span>) <span class="kw">and</span> <span class="kw">not</span> line.startswith(<span class="st">'EXT'</span>):</span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>        characters.append(line)</span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>        next_line <span class="op">=</span> entry_info[<span class="dv">10</span>:][row <span class="op">+</span> <span class="dv">1</span>]</span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>        dialogues.append(next_line)</span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> current_character <span class="kw">is</span> <span class="kw">not</span> <span class="va">None</span>:</span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>            characters.append(current_character)</span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>            dialogues.append(<span class="st">' '</span>.join(current_dialogue))</span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>        current_character <span class="op">=</span> line</span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>        current_dialogue <span class="op">=</span> []</span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a>        current_dialogue.append(line)</span>
+<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a>df_dark_knight <span class="op">=</span> pd.DataFrame({<span class="st">'Character'</span>: characters, <span class="st">'Dialogue'</span>: dialogues})</span>
+<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a>df_dark_knight.head()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="24">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Character</th>
+<th data-quarto-table-cell-role="th">Dialogue</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">0</th>
+<td>GORDON</td>
+<td>But I knew Harvey Dent. I was...his</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">1</th>
+<td>CIA MAN</td>
+<td>Dr. Pavel, I'm CIA.</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">2</th>
+<td>GORDON</td>
+<td>But I knew Harvey Dent. I was...his friend. An...</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">3</th>
+<td>DRIVER</td>
+<td>He wasn't alone.</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">4</th>
+<td>CIA MAN</td>
+<td>Dr. Pavel, I'm CIA. Dr. Pavel nods, nervous. C...</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<div id="22ca313c" class="cell" data-execution_count="3">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">## Making a new column with the first 15 characters of the dialogue to identify unique dialogues for each character</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>df_dark_knight[<span class="st">'Dialogue_15'</span>] <span class="op">=</span> df_dark_knight[<span class="st">'Dialogue'</span>].<span class="bu">str</span>[:<span class="dv">15</span>]</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>new_df <span class="op">=</span> df_dark_knight.drop_duplicates(</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    subset<span class="op">=</span>[<span class="st">'Character'</span>, <span class="st">'Dialogue_15'</span>],</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    keep<span class="op">=</span><span class="st">'last'</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>new_df <span class="op">=</span> new_df.drop(columns<span class="op">=</span>[<span class="st">'Dialogue_15'</span>])</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>new_df.head</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="25">
+<pre><code>&lt;bound method NDFrame.head of        Character                                           Dialogue
+2         GORDON  But I knew Harvey Dent. I was...his friend. An...
+4        CIA MAN  Dr. Pavel, I'm CIA. Dr. Pavel nods, nervous. C...
+6         DRIVER  He wasn't alone. CIA Man, confused, spots the ...
+7      DR. PAVEL                                           (SHAKEN)
+8        CIA MAN                    You don't get to bring friends.
+...          ...                                                ...
+2710         FOX                                                   
+2712  (CONFUSED)  Check the user ident on the patch... Tech 2 ty...
+2714      TECH 2  Huh. Bruce Wayne. Fox turns away from the roto...
+2715      ALFRED                   Si, Fernet Branca, per cortesia.
+2716      WAITER                                        Lei e solo?
+
+[1470 rows x 2 columns]&gt;</code></pre>
+</div>
+</div>
+<div id="c38738bb" class="cell" data-execution_count="4">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">## Number of times a character speaks</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>character_counts <span class="op">=</span> new_df[<span class="st">'Character'</span>].value_counts()</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>top_characters <span class="op">=</span> character_counts.head(<span class="dv">5</span>)</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>top_characters</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="26">
+<pre><code>Character
+WAYNE     192
+BLAKE     132
+BANE       92
+GORDON     83
+ALFRED     74
+Name: count, dtype: int64</code></pre>
+</div>
+</div>
+<div id="b8ad37eb" class="cell" data-execution_count="5">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">## Visualization of top speaking characters</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>top_characters.plot(kind<span class="op">=</span><span class="st">'bar'</span>)</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Top 5 Speaking Characters"</span>)</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"Character Name"</span>)</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"Number of Lines"</span>)</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>plt.xticks(rotation<span class="op">=</span><span class="dv">0</span>)</span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="readme_files/figure-html/cell-6-output-1.png" width="662" height="470" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<div id="3efcb3e8" class="cell" data-execution_count="6">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co">## Sentiment Analysis of top speaking characters</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> vaderSentiment.vaderSentiment <span class="im">import</span> SentimentIntensityAnalyzer</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>vader <span class="op">=</span> SentimentIntensityAnalyzer()</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>top_5 <span class="op">=</span> top_characters.index.tolist()</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>df_top_5 <span class="op">=</span> new_df[new_df[<span class="st">'Character'</span>].isin(top_5)]</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>df_top_5[<span class="st">'Sentiment'</span>] <span class="op">=</span> df_top_5[<span class="st">'Dialogue'</span>].<span class="bu">apply</span>(<span class="kw">lambda</span> x: vader.polarity_scores(x)[<span class="st">'compound'</span>]) </span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>top5_characters_sentiment <span class="op">=</span> df_top_5.groupby(<span class="st">'Character'</span>)[<span class="st">'Sentiment'</span>].mean().reset_index().sort_values(by<span class="op">=</span><span class="st">'Sentiment'</span>, ascending<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>top5_characters_sentiment</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>C:\Users\azepf\AppData\Local\Temp\ipykernel_25892\1080326244.py:11: SettingWithCopyWarning:
+
+
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+</code></pre>
+</div>
+<div class="cell-output cell-output-display" data-execution_count="28">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Character</th>
+<th data-quarto-table-cell-role="th">Sentiment</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">4</th>
+<td>WAYNE</td>
+<td>0.028688</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">0</th>
+<td>ALFRED</td>
+<td>-0.095935</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">2</th>
+<td>BLAKE</td>
+<td>-0.099490</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">1</th>
+<td>BANE</td>
+<td>-0.109113</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">3</th>
+<td>GORDON</td>
+<td>-0.114398</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<div id="2aace040" class="cell" data-execution_count="7">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co">## Vizualization of sentiment scores</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>top5_characters_sentiment.set_index(<span class="st">'Character'</span>)[<span class="st">'Sentiment'</span>].plot(kind<span class="op">=</span><span class="st">'bar'</span>)</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Top 5 Speaking Characters Sentiment Scores"</span>)</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"Character Name"</span>)</span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"Average Sentiment Score"</span>)</span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>plt.xticks(rotation<span class="op">=</span><span class="dv">0</span>)</span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="readme_files/figure-html/cell-8-output-1.png" width="662" height="470" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<div id="14202880" class="cell" data-execution_count="8">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co">## Sentiment score of Batman vs Bane across movie timeline</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> vaderSentiment.vaderSentiment <span class="im">import</span> SentimentIntensityAnalyzer</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>vader <span class="op">=</span> SentimentIntensityAnalyzer()</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>characters <span class="op">=</span> [<span class="st">'WAYNE'</span>, <span class="st">'BANE'</span>]</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>df_wayne_bane <span class="op">=</span> new_df[new_df[<span class="st">'Character'</span>].isin(characters)].copy()</span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>df_wayne_bane[<span class="st">'Sentiment'</span>] <span class="op">=</span> df_wayne_bane[<span class="st">'Dialogue'</span>].<span class="bu">apply</span>(<span class="kw">lambda</span> x: vader.polarity_scores(x)[<span class="st">'compound'</span>])</span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>df_wayne_bane[<span class="st">'Dialogue_Length'</span>] <span class="op">=</span> df_wayne_bane[<span class="st">'Dialogue'</span>].<span class="bu">apply</span>(<span class="bu">len</span>)</span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a>wayne <span class="op">=</span> df_wayne_bane[df_wayne_bane[<span class="st">'Character'</span>] <span class="op">==</span> <span class="st">'WAYNE'</span>]</span>
+<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a>bane <span class="op">=</span> df_wayne_bane[df_wayne_bane[<span class="st">'Character'</span>] <span class="op">==</span> <span class="st">'BANE'</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div id="751a8164" class="cell" data-execution_count="9">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co">## Sentiment score of Batman vs Bane across movie timeline vizulization</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">12</span>, <span class="dv">6</span>))</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>plt.hist([wayne[<span class="st">'Sentiment'</span>], bane[<span class="st">'Sentiment'</span>]],</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>         bins<span class="op">=</span><span class="dv">20</span>,</span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>         label<span class="op">=</span>[<span class="st">'Bruce Wayne'</span>, <span class="st">'Bane'</span>])</span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Sentiment Distribution of Dialogue"</span>)</span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"Sentiment Score"</span>)</span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"Frequency"</span>)</span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>plt.legend()</span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="readme_files/figure-html/cell-10-output-1.png" width="957" height="523" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<div id="b2428039" class="cell" data-execution_count="10">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co">## Topic modeling of the movie script</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> joblib <span class="im">import</span> load, dump</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd </span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np  </span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> lda</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt </span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> statsmodels.api <span class="im">as</span> sm</span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> statsmodels.formula.api <span class="im">as</span> smf</span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pprint <span class="im">as</span> pprint </span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> requests</span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.feature_extraction.text <span class="im">import</span> CountVectorizer</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div id="ecf903c1" class="cell" data-execution_count="11">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>stopwords <span class="op">=</span> requests.get(<span class="st">'https://raw.githubusercontent.com/stopwords-iso/stopwords-en/refs/heads/master/stopwords-en.txt'</span>)</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>stopwords <span class="op">=</span> stopwords.text.split(<span class="st">'</span><span class="ch">\n</span><span class="st">'</span>)</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>stopword_pattern <span class="op">=</span> <span class="vs">r'</span><span class="dv">\b</span>(?:<span class="vs">{}</span>)<span class="dv">\b</span><span class="vs">'</span>.<span class="bu">format</span>(<span class="st">'|'</span>.join(stopwords))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div id="1c41a16f" class="cell" data-execution_count="12">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>new_df <span class="op">=</span> new_df.dropna(subset<span class="op">=</span>[<span class="st">'Dialogue'</span>])  </span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>new_df[<span class="st">"Dialogue"</span>] <span class="op">=</span> new_df[<span class="st">"Dialogue"</span>].astype(<span class="bu">str</span>)</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>new_df[<span class="st">"Dialogue"</span>] <span class="op">=</span> new_df[<span class="st">"Dialogue"</span>].<span class="bu">str</span>.lower()</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>new_df[<span class="st">"Dialogue_clean"</span>] <span class="op">=</span> new_df[<span class="st">"Dialogue"</span>].<span class="bu">str</span>.replace(stopword_pattern, <span class="st">''</span>, regex<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>new_df[<span class="st">"Dialogue_clean"</span>] <span class="op">=</span> new_df[<span class="st">"Dialogue_clean"</span>].<span class="bu">str</span>.replace(<span class="vs">r"</span><span class="pp">[</span><span class="ch">\(\)</span><span class="pp">.,?!;:'</span><span class="ch">\"</span><span class="pp">-]</span><span class="vs">"</span>, <span class="st">""</span>, regex<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>new_df[<span class="st">"Dialogue_clean"</span>] <span class="op">=</span> new_df[<span class="st">"Dialogue_clean"</span>].<span class="bu">str</span>.replace(<span class="vs">r'</span><span class="dv">\s</span><span class="op">+</span><span class="vs">'</span>, <span class="st">' '</span>, regex<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>new_df[<span class="st">'word_count'</span>] <span class="op">=</span> new_df[<span class="st">'Dialogue_clean'</span>].<span class="bu">apply</span>(<span class="kw">lambda</span> x: <span class="bu">len</span>(x.split()))</span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>new_df[<span class="st">'word_count'</span>].describe()</span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a>vectorizer <span class="op">=</span> CountVectorizer()</span>
+<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> vectorizer.fit_transform(new_df[<span class="st">'Dialogue_clean'</span>])</span>
+<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a>vocab <span class="op">=</span> vectorizer.get_feature_names_out()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div id="fa75c48f" class="cell" data-execution_count="13">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>model <span class="op">=</span> lda.LDA(n_topics<span class="op">=</span><span class="dv">5</span>, n_iter<span class="op">=</span><span class="dv">1500</span>, random_state<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>model.fit(x)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>INFO:lda:n_documents: 1470
+INFO:lda:vocab_size: 3434
+INFO:lda:n_words: 11641
+INFO:lda:n_topics: 5
+INFO:lda:n_iter: 1500
+WARNING:lda:all zero row in document-term matrix found
+INFO:lda:&lt;0&gt; log likelihood: -126546
+INFO:lda:&lt;10&gt; log likelihood: -100840
+INFO:lda:&lt;20&gt; log likelihood: -99120
+INFO:lda:&lt;30&gt; log likelihood: -98244
+INFO:lda:&lt;40&gt; log likelihood: -97716
+INFO:lda:&lt;50&gt; log likelihood: -97499
+INFO:lda:&lt;60&gt; log likelihood: -97023
+INFO:lda:&lt;70&gt; log likelihood: -96947
+INFO:lda:&lt;80&gt; log likelihood: -96824
+INFO:lda:&lt;90&gt; log likelihood: -96794
+INFO:lda:&lt;100&gt; log likelihood: -96604
+INFO:lda:&lt;110&gt; log likelihood: -96537
+INFO:lda:&lt;120&gt; log likelihood: -96614
+INFO:lda:&lt;130&gt; log likelihood: -96392
+INFO:lda:&lt;140&gt; log likelihood: -96328
+INFO:lda:&lt;150&gt; log likelihood: -96437
+INFO:lda:&lt;160&gt; log likelihood: -96352
+INFO:lda:&lt;170&gt; log likelihood: -96205
+INFO:lda:&lt;180&gt; log likelihood: -96264
+INFO:lda:&lt;190&gt; log likelihood: -96213
+INFO:lda:&lt;200&gt; log likelihood: -96125
+INFO:lda:&lt;210&gt; log likelihood: -96110
+INFO:lda:&lt;220&gt; log likelihood: -96063
+INFO:lda:&lt;230&gt; log likelihood: -96064
+INFO:lda:&lt;240&gt; log likelihood: -95982
+INFO:lda:&lt;250&gt; log likelihood: -95948
+INFO:lda:&lt;260&gt; log likelihood: -96031
+INFO:lda:&lt;270&gt; log likelihood: -95931
+INFO:lda:&lt;280&gt; log likelihood: -96204
+INFO:lda:&lt;290&gt; log likelihood: -95973
+INFO:lda:&lt;300&gt; log likelihood: -95942
+INFO:lda:&lt;310&gt; log likelihood: -95976
+INFO:lda:&lt;320&gt; log likelihood: -95891
+INFO:lda:&lt;330&gt; log likelihood: -95890
+INFO:lda:&lt;340&gt; log likelihood: -95933
+INFO:lda:&lt;350&gt; log likelihood: -95955
+INFO:lda:&lt;360&gt; log likelihood: -95899
+INFO:lda:&lt;370&gt; log likelihood: -95929
+INFO:lda:&lt;380&gt; log likelihood: -95874
+INFO:lda:&lt;390&gt; log likelihood: -95917
+INFO:lda:&lt;400&gt; log likelihood: -95891
+INFO:lda:&lt;410&gt; log likelihood: -95902
+INFO:lda:&lt;420&gt; log likelihood: -95911
+INFO:lda:&lt;430&gt; log likelihood: -95939
+INFO:lda:&lt;440&gt; log likelihood: -95725
+INFO:lda:&lt;450&gt; log likelihood: -95829
+INFO:lda:&lt;460&gt; log likelihood: -95888
+INFO:lda:&lt;470&gt; log likelihood: -95874
+INFO:lda:&lt;480&gt; log likelihood: -95724
+INFO:lda:&lt;490&gt; log likelihood: -95825
+INFO:lda:&lt;500&gt; log likelihood: -95828
+INFO:lda:&lt;510&gt; log likelihood: -95997
+INFO:lda:&lt;520&gt; log likelihood: -95726
+INFO:lda:&lt;530&gt; log likelihood: -95765
+INFO:lda:&lt;540&gt; log likelihood: -95933
+INFO:lda:&lt;550&gt; log likelihood: -95802
+INFO:lda:&lt;560&gt; log likelihood: -95789
+INFO:lda:&lt;570&gt; log likelihood: -95771
+INFO:lda:&lt;580&gt; log likelihood: -95725
+INFO:lda:&lt;590&gt; log likelihood: -95823
+INFO:lda:&lt;600&gt; log likelihood: -95717
+INFO:lda:&lt;610&gt; log likelihood: -95785
+INFO:lda:&lt;620&gt; log likelihood: -95720
+INFO:lda:&lt;630&gt; log likelihood: -95669
+INFO:lda:&lt;640&gt; log likelihood: -95791
+INFO:lda:&lt;650&gt; log likelihood: -95703
+INFO:lda:&lt;660&gt; log likelihood: -95711
+INFO:lda:&lt;670&gt; log likelihood: -95744
+INFO:lda:&lt;680&gt; log likelihood: -95704
+INFO:lda:&lt;690&gt; log likelihood: -95745
+INFO:lda:&lt;700&gt; log likelihood: -95487
+INFO:lda:&lt;710&gt; log likelihood: -95621
+INFO:lda:&lt;720&gt; log likelihood: -95658
+INFO:lda:&lt;730&gt; log likelihood: -95654
+INFO:lda:&lt;740&gt; log likelihood: -95608
+INFO:lda:&lt;750&gt; log likelihood: -95532
+INFO:lda:&lt;760&gt; log likelihood: -95551
+INFO:lda:&lt;770&gt; log likelihood: -95476
+INFO:lda:&lt;780&gt; log likelihood: -95740
+INFO:lda:&lt;790&gt; log likelihood: -95609
+INFO:lda:&lt;800&gt; log likelihood: -95747
+INFO:lda:&lt;810&gt; log likelihood: -95653
+INFO:lda:&lt;820&gt; log likelihood: -95556
+INFO:lda:&lt;830&gt; log likelihood: -95549
+INFO:lda:&lt;840&gt; log likelihood: -95548
+INFO:lda:&lt;850&gt; log likelihood: -95573
+INFO:lda:&lt;860&gt; log likelihood: -95629
+INFO:lda:&lt;870&gt; log likelihood: -95546
+INFO:lda:&lt;880&gt; log likelihood: -95607
+INFO:lda:&lt;890&gt; log likelihood: -95565
+INFO:lda:&lt;900&gt; log likelihood: -95580
+INFO:lda:&lt;910&gt; log likelihood: -95646
+INFO:lda:&lt;920&gt; log likelihood: -95559
+INFO:lda:&lt;930&gt; log likelihood: -95721
+INFO:lda:&lt;940&gt; log likelihood: -95572
+INFO:lda:&lt;950&gt; log likelihood: -95585
+INFO:lda:&lt;960&gt; log likelihood: -95622
+INFO:lda:&lt;970&gt; log likelihood: -95584
+INFO:lda:&lt;980&gt; log likelihood: -95507
+INFO:lda:&lt;990&gt; log likelihood: -95639
+INFO:lda:&lt;1000&gt; log likelihood: -95640
+INFO:lda:&lt;1010&gt; log likelihood: -95530
+INFO:lda:&lt;1020&gt; log likelihood: -95475
+INFO:lda:&lt;1030&gt; log likelihood: -95548
+INFO:lda:&lt;1040&gt; log likelihood: -95582
+INFO:lda:&lt;1050&gt; log likelihood: -95599
+INFO:lda:&lt;1060&gt; log likelihood: -95636
+INFO:lda:&lt;1070&gt; log likelihood: -95608
+INFO:lda:&lt;1080&gt; log likelihood: -95446
+INFO:lda:&lt;1090&gt; log likelihood: -95560
+INFO:lda:&lt;1100&gt; log likelihood: -95567
+INFO:lda:&lt;1110&gt; log likelihood: -95523
+INFO:lda:&lt;1120&gt; log likelihood: -95522
+INFO:lda:&lt;1130&gt; log likelihood: -95568
+INFO:lda:&lt;1140&gt; log likelihood: -95500
+INFO:lda:&lt;1150&gt; log likelihood: -95467
+INFO:lda:&lt;1160&gt; log likelihood: -95545
+INFO:lda:&lt;1170&gt; log likelihood: -95549
+INFO:lda:&lt;1180&gt; log likelihood: -95623
+INFO:lda:&lt;1190&gt; log likelihood: -95611
+INFO:lda:&lt;1200&gt; log likelihood: -95652
+INFO:lda:&lt;1210&gt; log likelihood: -95549
+INFO:lda:&lt;1220&gt; log likelihood: -95694
+INFO:lda:&lt;1230&gt; log likelihood: -95534
+INFO:lda:&lt;1240&gt; log likelihood: -95486
+INFO:lda:&lt;1250&gt; log likelihood: -95569
+INFO:lda:&lt;1260&gt; log likelihood: -95556
+INFO:lda:&lt;1270&gt; log likelihood: -95457
+INFO:lda:&lt;1280&gt; log likelihood: -95458
+INFO:lda:&lt;1290&gt; log likelihood: -95435
+INFO:lda:&lt;1300&gt; log likelihood: -95512
+INFO:lda:&lt;1310&gt; log likelihood: -95516
+INFO:lda:&lt;1320&gt; log likelihood: -95429
+INFO:lda:&lt;1330&gt; log likelihood: -95567
+INFO:lda:&lt;1340&gt; log likelihood: -95511
+INFO:lda:&lt;1350&gt; log likelihood: -95602
+INFO:lda:&lt;1360&gt; log likelihood: -95408
+INFO:lda:&lt;1370&gt; log likelihood: -95465
+INFO:lda:&lt;1380&gt; log likelihood: -95600
+INFO:lda:&lt;1390&gt; log likelihood: -95592
+INFO:lda:&lt;1400&gt; log likelihood: -95553
+INFO:lda:&lt;1410&gt; log likelihood: -95588
+INFO:lda:&lt;1420&gt; log likelihood: -95556
+INFO:lda:&lt;1430&gt; log likelihood: -95604
+INFO:lda:&lt;1440&gt; log likelihood: -95543
+INFO:lda:&lt;1450&gt; log likelihood: -95588
+INFO:lda:&lt;1460&gt; log likelihood: -95573
+INFO:lda:&lt;1470&gt; log likelihood: -95579
+INFO:lda:&lt;1480&gt; log likelihood: -95461
+INFO:lda:&lt;1490&gt; log likelihood: -95620
+INFO:lda:&lt;1499&gt; log likelihood: -95451</code></pre>
+</div>
+<div class="cell-output cell-output-display" data-execution_count="35">
+<pre><code>&lt;lda.lda.LDA at 0x2aad3bc8b90&gt;</code></pre>
+</div>
+</div>
+<div id="b2637a56" class="cell" data-execution_count="14">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>topic_word <span class="op">=</span> model.topic_word_</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>n_top_words <span class="op">=</span> <span class="dv">10</span></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i, topic_dist <span class="kw">in</span> <span class="bu">enumerate</span>(topic_word):</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>    topic_words <span class="op">=</span> np.array(vocab)[np.argsort(topic_dist)][:<span class="op">-</span>(n_top_words<span class="op">+</span><span class="dv">1</span>):<span class="op">-</span><span class="dv">1</span>]</span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">'Topic </span><span class="sc">{}</span><span class="st">: </span><span class="sc">{}</span><span class="st">'</span>.<span class="bu">format</span>(i, <span class="st">' '</span>.join(topic_words)))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Topic 0: bane batman catwoman head tunnel hand pulls takes bat mercenary
+Topic 1: continuous ext blake bane gotham street dr pavel city truck
+Topic 2: wayne prisoner prison bane people dent cut gotham child prisoners
+Topic 3: blake gordon continuous ext selina gotham foley day cruiser pulls
+Topic 4: wayne alfred daggett fox miranda manor day bruce stock enterprises</code></pre>
+</div>
+</div>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

@@ -1,0 +1,265 @@
+---
+title: "Final Project"
+format: html
+---
+
+
+
+```{python}
+import requests
+from bs4 import BeautifulSoup
+import pandas as pd
+```
+
+For this project I wanted to identify which character drives the narative in The Dark Knight Rises movie. Once I scrapped the script from https://imsdb.com/scripts/Dark-Knight-Rises,-The.html into the data frame called df_dark_knight I was able to have two columns. The first one being Character and the second one being Dialogue. After doing this though I deiscovered that because of the way the script was fomratted I was not collecting all of the dialogue spoken by each character. To correct this I created a new column of the first 15 characters. Than by using the drop duplicates from last I was able to create the df_new which was able to grab all of the dialogue spoken by each character. From there I counted the number of times a character spoke, ran sentiment analysis, as well as topic modeling. In doing so I was able to answer the question of who drives the narative in The Dark Knight Rises movie.
+
+```{python}
+# URL of the website to scrape
+
+dark_knight_link = "https://imsdb.com/scripts/Dark-Knight-Rises,-The.html"
+link_request = requests.get(dark_knight_link)
+soup = BeautifulSoup(link_request.content, 'html.parser')
+
+dark_knight_script = soup.select('pre')
+dark_knight_script = [x.text.strip() for x in dark_knight_script]
+
+entry_info = dark_knight_script[0].split('\n')
+
+entry_info = [x.strip() for x in entry_info if x.strip() != '']
+
+
+df_entry_info = pd.DataFrame(entry_info)
+
+
+characters = []
+dialogues = []
+current_character = None
+current_dialogue = []
+
+for row, line in enumerate(entry_info[10:]):
+    if line == line.upper() and not line.endswith('.') and not line.endswith(':') and not line.startswith('INT') and not line.startswith('EXT'):
+        characters.append(line)
+        next_line = entry_info[10:][row + 1]
+        dialogues.append(next_line)
+        if current_character is not None:
+            characters.append(current_character)
+            dialogues.append(' '.join(current_dialogue))
+        current_character = line
+        current_dialogue = []
+    else:
+        current_dialogue.append(line)
+
+df_dark_knight = pd.DataFrame({'Character': characters, 'Dialogue': dialogues})
+
+df_dark_knight.head()
+
+```
+
+Below is the code I used to create a new column with the first 15 characters. After doing so I was able to use the drop_duplicates and keep last that way it was able to resolve the issue of not getting every piece of dialogue and rid it of repeat dialogue. 
+
+
+
+```{python}
+
+## Making a new column with the first 15 characters of the dialogue to identify unique dialogues for each character
+
+df_dark_knight['Dialogue_15'] = df_dark_knight['Dialogue'].str[:15]
+
+
+new_df = df_dark_knight.drop_duplicates(
+    subset=['Character', 'Dialogue_15'],
+    keep='last'
+)
+
+new_df = new_df.drop(columns=['Dialogue_15'])
+
+new_df.head
+
+```
+
+Here I use the value_counts for Character. In doing this I am able to figure out how many times a character speaks throughout the film. I than make the top_characters to see which of the top 5 characters speak the most.
+
+
+```{python}
+## Number of times a character speaks
+character_counts = new_df['Character'].value_counts()
+
+top_characters = character_counts.head(5)
+
+top_characters
+```
+
+Here I perform a bar graph to show who are the top 5 speaking character in the film and how many times they speak.
+
+```{python}
+## Visualization of top speaking characters
+import matplotlib.pyplot as plt
+
+
+top_characters.plot(kind='bar')
+
+plt.title("Top 5 Speaking Characters")
+plt.xlabel("Character Name")
+plt.ylabel("Number of Lines")
+plt.xticks(rotation=0)
+plt.tight_layout()
+plt.show()
+
+```
+
+
+Here I am running the Vader Sentiment analysis of the top speaking characters. By foing this I am able to see there average compound score to see what there tone was most like throughout the film
+
+```{python}
+## Sentiment Analysis of top speaking characters
+
+from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
+
+vader = SentimentIntensityAnalyzer()
+
+top_5 = top_characters.index.tolist()
+
+df_top_5 = new_df[new_df['Character'].isin(top_5)]
+
+df_top_5['Sentiment'] = df_top_5['Dialogue'].apply(lambda x: vader.polarity_scores(x)['compound']) 
+
+top5_characters_sentiment = df_top_5.groupby('Character')['Sentiment'].mean().reset_index().sort_values(by='Sentiment', ascending=False)
+
+top5_characters_sentiment
+
+
+
+
+```
+
+
+Here is a bar graph to vizual the top 5 speaking characters average sentiment.
+
+```{python}
+## Vizualization of sentiment scores
+import matplotlib.pyplot as plt
+
+
+top5_characters_sentiment.set_index('Character')['Sentiment'].plot(kind='bar')
+
+plt.title("Top 5 Speaking Characters Sentiment Scores")
+plt.xlabel("Character Name")
+plt.ylabel("Average Sentiment Score")
+plt.xticks(rotation=0)
+plt.tight_layout()
+plt.show()
+```
+
+
+Here we are looking at the sentiment scores of the hero and the villan of the story across the entirty of the movie. We take the two characters names and put them into df_wayne_bane. From there we find each of there compound sentiment scores. Than by applying the length to it we are able to see the scores and the frequency across the film.
+
+```{python}
+## Sentiment score of Batman vs Bane across movie timeline
+
+from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
+
+vader = SentimentIntensityAnalyzer()
+
+characters = ['WAYNE', 'BANE']
+
+df_wayne_bane = new_df[new_df['Character'].isin(characters)].copy()
+
+df_wayne_bane['Sentiment'] = df_wayne_bane['Dialogue'].apply(lambda x: vader.polarity_scores(x)['compound'])
+
+df_wayne_bane['Dialogue_Length'] = df_wayne_bane['Dialogue'].apply(len)
+
+wayne = df_wayne_bane[df_wayne_bane['Character'] == 'WAYNE']
+bane = df_wayne_bane[df_wayne_bane['Character'] == 'BANE']
+
+
+
+
+```
+
+
+Here is the vizulization which is a histogram that shows Wayne and Bane's sentiment scores thorughout the movie.
+
+```{python}
+## Sentiment score of Batman vs Bane across movie timeline vizulization
+
+plt.figure(figsize=(12, 6))
+
+
+plt.hist([wayne['Sentiment'], bane['Sentiment']],
+         bins=20,
+         label=['Bruce Wayne', 'Bane'])
+
+plt.title("Sentiment Distribution of Dialogue")
+plt.xlabel("Sentiment Score")
+plt.ylabel("Frequency")
+plt.legend()
+
+plt.show()
+
+
+
+```
+
+
+Here I ran a topic model to discover the main topics talked about within the film.
+
+```{python}
+## Topic modeling of the movie script
+from joblib import load, dump
+import pandas as pd 
+import numpy as np  
+import lda
+import seaborn as sns
+import matplotlib.pyplot as plt 
+import statsmodels.api as sm
+import statsmodels.formula.api as smf
+import pprint as pprint 
+import requests
+from sklearn.feature_extraction.text import CountVectorizer
+```
+
+
+```{python}
+stopwords = requests.get('https://raw.githubusercontent.com/stopwords-iso/stopwords-en/refs/heads/master/stopwords-en.txt')
+
+stopwords = stopwords.text.split('\n')
+
+stopword_pattern = r'\b(?:{})\b'.format('|'.join(stopwords))
+```
+
+
+```{python}
+new_df = new_df.dropna(subset=['Dialogue'])  
+new_df["Dialogue"] = new_df["Dialogue"].astype(str)
+new_df["Dialogue"] = new_df["Dialogue"].str.lower()
+
+new_df["Dialogue_clean"] = new_df["Dialogue"].str.replace(stopword_pattern, '', regex=True)
+new_df["Dialogue_clean"] = new_df["Dialogue_clean"].str.replace(r"[\(\).,?!;:'\"-]", "", regex=True)
+new_df["Dialogue_clean"] = new_df["Dialogue_clean"].str.replace(r'\s+', ' ', regex=True)
+
+new_df['word_count'] = new_df['Dialogue_clean'].apply(lambda x: len(x.split()))
+new_df['word_count'].describe()
+
+vectorizer = CountVectorizer()
+x = vectorizer.fit_transform(new_df['Dialogue_clean'])
+vocab = vectorizer.get_feature_names_out()
+```
+
+
+```{python}
+model = lda.LDA(n_topics=5, n_iter=1500, random_state=1)
+model.fit(x)
+```
+
+
+```{python}
+topic_word = model.topic_word_
+n_top_words = 10
+for i, topic_dist in enumerate(topic_word):
+    topic_words = np.array(vocab)[np.argsort(topic_dist)][:-(n_top_words+1):-1]
+    print('Topic {}: {}'.format(i, ' '.join(topic_words)))
+```
+
+
+
+After looking at everything from the dataset I created that there are actually two characters that drive the narative of the movie. It is the hero vs the villan the movie can't have one without the other. The protagonsit needs the antagonist. That is why I have come to the conclusion that Bane and Bruce Wayne drive the narative of this movie.
